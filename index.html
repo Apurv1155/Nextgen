@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutan Varshabhinandan | NextGen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Noto+Sans+Gujarati:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #fff9f0 0%, #ffe8cc 100%);
+      overflow-x: hidden;
+    }
+    
+    /* Subtle rangoli pattern background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, transparent 30%, rgba(255, 152, 0, 0.03) 31%, rgba(255, 152, 0, 0.03) 35%, transparent 36%),
+                  radial-gradient(circle, transparent 50%, rgba(255, 152, 0, 0.04) 51%, rgba(255, 152, 0, 0.04) 52%, transparent 53%);
+      border-radius: 50%;
+      opacity: 0.5;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Header */
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+    
+    .logo {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #d84315;
+      letter-spacing: 3px;
+      opacity: 0;
+      animation: fadeInDown 1.2s ease forwards;
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      min-height: 70vh;
+    }
+    
+    .rangoli-top {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeIn 1.5s ease 0.3s forwards;
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    
+    .rangoli-top svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 2px 8px rgba(255, 152, 0, 0.2));
+    }
+    
+    .main-heading {
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #d84315;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease 0.5s forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .wish-text {
+      font-size: 1.2rem;
+      color: #5d4037;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease 0.7s forwards;
+    }
+    
+    .gujarati-text {
+      font-family: 'Noto Sans Gujarati', 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      color: #d84315;
+      font-weight: 600;
+      margin-top: 1rem;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease 0.9s forwards;
+    }
+    
+    .diya-container {
+      margin-top: 3rem;
+      opacity: 0;
+      animation: fadeIn 1.5s ease 1.1s forwards;
+    }
+    
+    .diya {
+      width: 80px;
+      height: 70px;
+      filter: drop-shadow(0 4px 12px rgba(255, 152, 0, 0.3));
+      animation: gentleFloat 3s ease-in-out infinite;
+    }
+    
+    @keyframes gentleFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    /* Traditional Divider */
+    .traditional-divider {
+      width: 200px;
+      height: 3px;
+      background: linear-gradient(to right, transparent, #d84315, transparent);
+      margin: 4rem auto 3rem;
+      position: relative;
+    }
+    
+    .traditional-divider::before {
+      content: '✦';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: #d84315;
+      font-size: 1.5rem;
+      background: #fff9f0;
+      padding: 0 10px;
+    }
+    
+    /* Services Section */
+    .services-section {
+      padding: 4rem 1.5rem;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #d84315;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #5d4037;
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 20px rgba(216, 67, 21, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid rgba(255, 152, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(to right, #d84315, #ff9800);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(216, 67, 21, 0.2);
+    }
+    
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      position: relative;
+    }
+    
+    .service-icon svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 2px 8px rgba(255, 152, 0, 0.3));
+    }
+    
+    .service-title {
+      font-size: 1.4rem;
+      color: #d84315;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .service-description {
+      font-size: 1rem;
+      color: #5d4037;
+      line-height: 1.6;
+    }
+    
+    /* Web Development Service Card */
+    .service-card.webdev {
+      border: 2px solid #4682b4;
+    }
+    
+    .service-card.webdev::before {
+      background: linear-gradient(to right, #4682b4, #00b4d8);
+    }
+    
+    .service-card.webdev .service-title {
+      color: #115173;
+    }
+    
+    .badge {
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #115173, #00b4d8);
+      color: #fff;
+      padding: 0.25rem 1.2rem;
+      border-radius: 12px;
+      font-size: 0.94rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+      box-shadow: 0 2px 7px #00b4d830;
+      z-index: 2;
+      opacity: 0;
+      animation: badgeAppear 1.2s cubic-bezier(0.24, 1.02, 0.29, 1) 0.7s both;
+    }
+    
+    @keyframes badgeAppear {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.7);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+      }
+    }
+    
+    /* Animated decorative elements */
+    .corner-decoration {
+      position: fixed;
+      width: 80px;
+      height: 80px;
+      opacity: 0.15;
+      z-index: 0;
+    }
+    
+    .corner-decoration.top-left {
+      top: 20px;
+      left: 20px;
+    }
+    
+    .corner-decoration.top-right {
+      top: 20px;
+      right: 20px;
+      transform: rotate(90deg);
+    }
+    
+    .corner-decoration.bottom-left {
+      bottom: 140px;
+      left: 20px;
+      transform: rotate(-90deg);
+    }
+    
+    .corner-decoration.bottom-right {
+      bottom: 140px;
+      right: 20px;
+      transform: rotate(180deg);
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      padding: 4rem 1.5rem;
+      background: linear-gradient(135deg, #ffe8cc, #fff9f0);
+      text-align: center;
+    }
+    
+    .contact-title {
+      font-size: 2rem;
+      color: #d84315;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+    
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: white;
+    }
+    
+    .instagram-btn {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+    }
+    
+    .contact-btn i {
+      font-size: 1.4rem;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.05);
+      color: #6d4c41;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+      }
+      
+      .main-heading {
+        font-size: 2rem;
+      }
+      
+      .wish-text {
+        font-size: 1rem;
+      }
+      
+      .gujarati-text {
+        font-size: 1.1rem;
+      }
+      
+      .rangoli-top {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .diya {
+        width: 60px;
+        height: 52px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1rem;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .contact-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+      
+      .corner-decoration {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Corner decorations -->
+  <svg class="corner-decoration top-left" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 40c0-15 10-25 25-25 10 0 15 8 15 15 0 10-8 15-15 15-8 0-12-5-12-12 0-5 3-8 7-8" 
+          stroke="#ff9800" stroke-width="2" fill="none"/>
+    <circle cx="30" cy="28" r="2" fill="#ff9800"/>
+    <circle cx="25" cy="35" r="1.5" fill="#ff9800"/>
+  </svg>
+  
+  <svg class="corner-decoration top-right" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 40c0-15 10-25 25-25 10 0 15 8 15 15 0 10-8 15-15 15-8 0-12-5-12-12 0-5 3-8 7-8" 
+          stroke="#ff9800" stroke-width="2" fill="none"/>
+    <circle cx="30" cy="28" r="2" fill="#ff9800"/>
+    <circle cx="25" cy="35" r="1.5" fill="#ff9800"/>
+  </svg>
+  
+  <svg class="corner-decoration bottom-left" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 40c0-15 10-25 25-25 10 0 15 8 15 15 0 10-8 15-15 15-8 0-12-5-12-12 0-5 3-8 7-8" 
+          stroke="#ff9800" stroke-width="2" fill="none"/>
+    <circle cx="30" cy="28" r="2" fill="#ff9800"/>
+    <circle cx="25" cy="35" r="1.5" fill="#ff9800"/>
+  </svg>
+  
+  <svg class="corner-decoration bottom-right" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 40c0-15 10-25 25-25 10 0 15 8 15 15 0 10-8 15-15 15-8 0-12-5-12-12 0-5 3-8 7-8" 
+          stroke="#ff9800" stroke-width="2" fill="none"/>
+    <circle cx="30" cy="28" r="2" fill="#ff9800"/>
+    <circle cx="25" cy="35" r="1.5" fill="#ff9800"/>
+  </svg>
+
+  <div class="container">
+    <header>
+      <img src="/Nextgen Dark.png" alt="">
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="rangoli-top">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="40" stroke="#d84315" stroke-width="1.5" fill="none"/>
+          <circle cx="50" cy="50" r="30" stroke="#ff9800" stroke-width="1.5" fill="none"/>
+          <circle cx="50" cy="50" r="20" stroke="#ffc107" stroke-width="1.5" fill="none"/>
+          <path d="M50 10 L55 45 L50 50 L45 45 Z" fill="#d84315"/>
+          <path d="M90 50 L55 55 L50 50 L55 45 Z" fill="#d84315"/>
+          <path d="M50 90 L45 55 L50 50 L55 55 Z" fill="#d84315"/>
+          <path d="M10 50 L45 45 L50 50 L45 55 Z" fill="#d84315"/>
+          <circle cx="50" cy="50" r="8" fill="#ffc107"/>
+          <circle cx="50" cy="50" r="4" fill="#ff9800"/>
+        </svg>
+      </div>
+      
+      <h1 class="main-heading">Nutan Varshabhinandan</h1>
+      
+      <p class="wish-text">
+        Step into 2082 with NextGen vision, creativity, and prosperity.
+      </p>
+      
+      <p class="gujarati-text">
+        નવા વર્ષની શુભકામનાઓ
+      </p>
+      
+      <div class="diya-container">
+        <svg class="diya" viewBox="0 0 80 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="40" cy="50" rx="30" ry="12" fill="#ff9800" stroke="#d84315" stroke-width="2"/>
+          <ellipse cx="40" cy="55" rx="14" ry="6" fill="#ffe0b2"/>
+          <path d="M40 50c3-3 12-8 13-16s-10-18-13-24c-3 6-13 16-13 24s10 13 13 16z" 
+                fill="#ffc107" stroke="#d84315" stroke-width="1.5"/>
+          <ellipse cx="40" cy="20" rx="5" ry="8" fill="#ffeb3b">
+            <animate attributeName="ry" values="8;10;8" dur="1.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;0.85;1" dur="1.5s" repeatCount="indefinite"/>
+          </ellipse>
+          <ellipse cx="40" cy="18" rx="3" ry="6" fill="#fff9c4" opacity="0.9">
+            <animate attributeName="ry" values="6;7.5;6" dur="1.5s" repeatCount="indefinite"/>
+          </ellipse>
+          <ellipse cx="40" cy="14" rx="2" ry="4" fill="#ffd740">
+            <animate attributeName="ry" values="4;5;4" dur="1.5s" repeatCount="indefinite"/>
+          </ellipse>
+        </svg>
+      </div>
+    </section>
+    
+    <!-- Traditional Divider -->
+    <div class="traditional-divider"></div>
+    
+    <!-- Services Section -->
+    <section class="services-section">
+      <h2 class="section-title">Digitalize Your Restaurant</h2>
+      <p class="section-subtitle">
+        Transform your dining experience with NextGen's innovative restaurant management solutions
+      </p>
+      
+      <div class="services-grid">
+        <!-- QR Menu Card -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="15" y="15" width="70" height="70" rx="5" fill="#fff" stroke="#d84315" stroke-width="2"/>
+              <rect x="20" y="20" width="15" height="15" fill="#d84315"/>
+              <rect x="65" y="20" width="15" height="15" fill="#d84315"/>
+              <rect x="20" y="65" width="15" height="15" fill="#d84315"/>
+              <rect x="25" y="25" width="5" height="5" fill="#fff"/>
+              <rect x="70" y="25" width="5" height="5" fill="#fff"/>
+              <rect x="25" y="70" width="5" height="5" fill="#fff"/>
+              <rect x="42" y="42" width="16" height="16" fill="#ff9800"/>
+              <path d="M40 20h2v5h-2zM45 20h2v5h-2zM58 20h2v5h-2z" fill="#5d4037"/>
+              <path d="M40 75h2v5h-2zM45 75h2v5h-2zM50 75h2v5h-2z" fill="#5d4037"/>
+              <circle cx="50" cy="50" r="3" fill="#fff">
+                <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+          </div>
+          <h3 class="service-title">QR Menu System</h3>
+          <p class="service-description">
+            Enable contactless ordering with digital QR code menus. Customers scan, browse, and order directly from their phones.
+          </p>
+        </div>
+        
+        <!-- Kitchen Display Card -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="15" width="80" height="60" rx="4" fill="#fff" stroke="#d84315" stroke-width="2"/>
+              <rect x="15" y="20" width="70" height="50" fill="#ffe0b2"/>
+              <rect x="20" y="25" width="25" height="15" rx="2" fill="#d84315"/>
+              <rect x="50" y="25" width="25" height="15" rx="2" fill="#ff9800"/>
+              <rect x="20" y="45" width="25" height="15" rx="2" fill="#ffc107"/>
+              <rect x="50" y="45" width="25" height="15" rx="2" fill="#d84315"/>
+              <circle cx="30" cy="32" r="2" fill="#fff">
+                <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="62" cy="32" r="2" fill="#fff">
+                <animate attributeName="opacity" values="1;0.5;1" dur="1.8s" repeatCount="indefinite"/>
+              </circle>
+              <path d="M35 78h30l-3 7h-24z" fill="#5d4037"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Live Order Receiver</h3>
+          <p class="service-description">
+            Real-time kitchen dashboard displays orders instantly with auto-refresh and sound notifications for seamless operations.
+          </p>
+        </div>
+        
+        <!-- Management System Card -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="35" fill="#fff" stroke="#d84315" stroke-width="2"/>
+              <path d="M50 20 L65 40 L50 35 L35 40 Z" fill="#ff9800"/>
+              <path d="M50 80 L35 60 L50 65 L65 60 Z" fill="#ff9800"/>
+              <path d="M20 50 L40 35 L35 50 L40 65 Z" fill="#ffc107"/>
+              <path d="M80 50 L60 65 L65 50 L60 35 Z" fill="#ffc107"/>
+              <circle cx="50" cy="50" r="12" fill="#d84315">
+                <animate attributeName="r" values="12;14;12" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <path d="M45 50h10M50 45v10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Full Management System</h3>
+          <p class="service-description">
+            Complete restaurant automation: menu management, order tracking, table management, and invoice generation—all in one place.
+          </p>
+        </div>
+        
+        <!-- Web Development Card -->
+        <div class="service-card webdev">
+          <div class="badge">NEW</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="12" width="60" height="35" rx="4" fill="#eff6fa" stroke="#00b4d8" stroke-width="2"/>
+              <rect x="17" y="18" width="46" height="22" fill="#b5eefd"/>
+              <rect x="22" y="23" width="14" height="3.5" rx="1.75" fill="#00b4d8"/>
+              <rect x="22" y="28" width="36" height="3.5" rx="1.75" fill="#4682b4"/>
+              <path d="M13 52h54v7H13z" fill="#e2f6ff" stroke="#00b4d8" stroke-width="1.4"/>
+              <circle cx="26" cy="56" r="2.3" fill="#00b4d8"/>
+              <rect x="31" y="54.5" width="18" height="3" rx="1.5" fill="#00b4d8"/>
+              <path d="M25 22l4 4-4 4M35 30l4-4-4-4" stroke="#4682b4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Web Development</h3>
+          <p class="service-description">
+            Modern, aesthetic & performance-driven business sites, QR menus, automation dashboards, and custom web solutions—all crafted for your growth.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <h2 class="contact-title">Let's Connect</h2>
+      <div class="contact-buttons">
+        <a href="https://wa.me/919173213576" class="contact-btn whatsapp-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+          WhatsApp Us 9173213576
+        </a>
+        <a href="https://instagram.com/nextgen.bywala" class="contact-btn instagram-btn" target="_blank">
+          <i class="fab fa-instagram"></i>
+          Follow on Instagram
+        </a>
+      </div>
+    </section>
+    
+    <footer>
+      © 2025 NextGen | Ahmedabad, Gujarat | +91 91732 13576
+    </footer>
+  </div>
+</body>
+</html>
